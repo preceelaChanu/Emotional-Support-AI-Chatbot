@@ -55,13 +55,6 @@ slots:
     mappings:
       - type: custom
     influence_conversation: true
-  
-  user_name:
-    type: text
-    mappings:
-      - type: from_text
-        conditions:
-          - active_loop: name_form
 
 # Custom actions
 actions:

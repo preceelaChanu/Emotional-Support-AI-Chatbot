@@ -82,6 +82,8 @@ stories:
     - intent: express_anger
     - action: action_analyze_sentiment
     - action: action_empathetic_response
+    - action: utter_ask_continue
+    - intent: affirm
     - action: utter_listening
 
 - story: user expresses fear directly
@@ -107,12 +109,14 @@ stories:
     - intent: share_problem
     - action: action_analyze_sentiment
     - action: action_empathetic_response
+    - action: utter_ask_continue
 
 - story: user shares problem then wants coping strategies
   steps:
     - intent: share_problem
     - action: action_analyze_sentiment
     - action: action_empathetic_response
+    - action: utter_ask_continue
     - intent: ask_coping_strategies
     - action: action_provide_coping_strategy
 
@@ -142,6 +146,7 @@ stories:
     - intent: express_anxiety
     - action: action_analyze_sentiment
     - action: action_empathetic_response
+    - action: utter_ask_continue
     - intent: ask_coping_strategies
     - action: action_provide_coping_strategy
 
@@ -155,6 +160,7 @@ stories:
     - intent: express_stress
     - action: action_analyze_sentiment
     - action: action_empathetic_response
+    - action: utter_ask_continue
     - intent: share_problem
     - action: action_analyze_sentiment
     - action: action_empathetic_response
@@ -173,6 +179,7 @@ stories:
     - intent: share_problem
     - action: action_analyze_sentiment
     - action: action_empathetic_response
+    - action: utter_ask_continue
 
 - story: user declines to continue
   steps:
@@ -201,6 +208,7 @@ stories:
     - intent: express_anxiety
     - action: action_analyze_sentiment
     - action: action_empathetic_response
+    - action: utter_ask_continue
     - intent: thank
     - action: utter_youre_welcome
     - intent: goodbye
