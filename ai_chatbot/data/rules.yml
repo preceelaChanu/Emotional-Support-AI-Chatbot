@@ -1,0 +1,103 @@
+# EmpathicAI - Rules
+version: "3.1"
+
+rules:
+# ============================================
+# BASIC INTERACTION RULES
+# ============================================
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: Respond to bot challenge
+  steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+
+- rule: Respond to thanks
+  steps:
+    - intent: thank
+    - action: utter_youre_welcome
+
+- rule: Greet user
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+# ============================================
+# EMOTIONAL SUPPORT RULES
+# ============================================
+- rule: Always analyze sentiment for sadness
+  steps:
+    - intent: express_sadness
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+- rule: Always analyze sentiment for anxiety
+  steps:
+    - intent: express_anxiety
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+- rule: Always analyze sentiment for stress
+  steps:
+    - intent: express_stress
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+- rule: Always analyze sentiment for loneliness
+  steps:
+    - intent: express_loneliness
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+- rule: Always analyze sentiment for anger
+  steps:
+    - intent: express_anger
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+- rule: Always analyze sentiment for fear
+  steps:
+    - intent: express_fear
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+- rule: Always analyze sentiment for joy
+  steps:
+    - intent: express_joy
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+# ============================================
+# SUPPORT RULES
+# ============================================
+- rule: When user seeks support, validate feelings
+  steps:
+    - intent: seek_support
+    - action: action_validate_feelings
+    - action: utter_listening
+
+- rule: When user wants to vent, provide active listening
+  steps:
+    - intent: need_to_vent
+    - action: action_active_listening
+
+- rule: When user asks for coping strategies
+  steps:
+    - intent: ask_coping_strategies
+    - action: action_provide_coping_strategy
+
+- rule: When user asks for resources
+  steps:
+    - intent: ask_for_resources
+    - action: action_provide_resources
+
+# ============================================
+# FALLBACK RULE
+# ============================================
+- rule: Ask for clarification on low confidence
+  steps:
+    - intent: nlu_fallback
+    - action: utter_default

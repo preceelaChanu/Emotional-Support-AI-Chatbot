@@ -1,0 +1,68 @@
+# EmpathicAI - Rasa Configuration
+# https://rasa.com/docs/rasa/model-configuration/
+
+recipe: default.v1
+
+# Project identifier
+assistant_id: empathic-ai-chatbot
+
+# Language configuration
+language: en
+
+# NLU Pipeline with Sentiment Analysis Integration
+pipeline:
+  # Tokenization
+  - name: WhitespaceTokenizer
+  
+  # Feature extraction
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  
+  # Count vectors for bag-of-words
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  
+  # Main intent classifier (DIET)
+  - name: DIETClassifier
+    epochs: 100
+    constrain_similarities: true
+    entity_recognition: true
+  
+  # Entity synonym mapping
+  - name: EntitySynonymMapper
+  
+  # Response selector for FAQs/chitchat
+  - name: ResponseSelector
+    epochs: 100
+    constrain_similarities: true
+  
+  # Fallback classifier for low confidence
+  - name: FallbackClassifier
+    threshold: 0.4
+    ambiguity_threshold: 0.1
+
+# Dialogue Management Policies
+policies:
+  # Rule-based policy for strict conversation flows
+  - name: RulePolicy
+    core_fallback_threshold: 0.4
+    core_fallback_action_name: action_default_fallback
+    enable_fallback_prediction: true
+  
+  # Memoization for exact story matches
+  - name: MemoizationPolicy
+    max_history: 5
+  
+  # TED Policy for generalization
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true
+  
+  # Unexpected intent handling
+  - name: UnexpecTEDIntentPolicy
+    max_history: 5
+    epochs: 100

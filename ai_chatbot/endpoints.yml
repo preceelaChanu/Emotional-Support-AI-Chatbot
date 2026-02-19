@@ -1,0 +1,27 @@
+# EmpathicAI - Endpoints Configuration
+# This file contains the different endpoints your bot can use.
+
+# Action server endpoint (for custom actions)
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# Tracker store configuration (optional - for conversation persistence)
+# Uncomment and configure for production deployment
+# tracker_store:
+#   type: sql
+#   dialect: "sqlite"
+#   db: "tracker.db"
+
+# Event broker configuration (optional - for event streaming)
+# Uncomment for production with message queue
+# event_broker:
+#   type: "pika"
+#   url: "localhost"
+#   username: "username"
+#   password: "password"
+#   queue: "rasa_events"
+
+# Model server configuration (optional - for model serving)
+# models:
+#   url: "http://my-server.com/models/default"
+#   wait_time_between_pulls: 10

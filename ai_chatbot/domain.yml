@@ -1,0 +1,175 @@
+# EmpathicAI - Domain Configuration
+version: "3.1"
+
+# Intents the bot can recognize
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - thank
+  - bot_challenge
+  # Emotional intents
+  - express_sadness
+  - express_anxiety
+  - express_stress
+  - express_loneliness
+  - express_anger
+  - express_fear
+  - express_joy
+  - express_neutral
+  # Support-seeking intents
+  - seek_support
+  - ask_coping_strategies
+  - ask_for_resources
+  - share_problem
+  - need_to_vent
+
+# Entities to extract
+entities:
+  - emotion
+  - intensity
+  - topic
+
+# Slots to track conversation state
+slots:
+  current_emotion:
+    type: categorical
+    values:
+      - sadness
+      - anxiety
+      - stress
+      - loneliness
+      - anger
+      - fear
+      - joy
+      - neutral
+    mappings:
+      - type: custom
+    influence_conversation: true
+  
+  sentiment_score:
+    type: float
+    min_value: -1.0
+    max_value: 1.0
+    mappings:
+      - type: custom
+    influence_conversation: true
+  
+  user_name:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: name_form
+
+# Custom actions
+actions:
+  - action_analyze_sentiment
+  - action_empathetic_response
+  - action_provide_coping_strategy
+  - action_provide_resources
+  - action_active_listening
+  - action_validate_feelings
+  - action_session_summary
+
+# Response templates
+responses:
+  # Greetings
+  utter_greet:
+    - text: "Hello! I'm EmpathicAI, and I'm here to listen and support you. How are you feeling today?"
+    - text: "Hi there! Welcome to a safe space. I'm here to listen without judgment. What's on your mind?"
+    - text: "Hello! I'm glad you reached out. How can I support you today?"
+
+  # Goodbyes
+  utter_goodbye:
+    - text: "Take care of yourself. Remember, it's okay to reach out whenever you need support. Goodbye!"
+    - text: "I'm here whenever you need to talk. Be kind to yourself. Goodbye!"
+    - text: "Thank you for sharing with me today. Remember, you're not alone. Take care!"
+
+  # Acknowledgments
+  utter_acknowledge:
+    - text: "I hear you, and I want you to know that your feelings are valid."
+    - text: "Thank you for trusting me with this. I'm here for you."
+    - text: "I appreciate you opening up. That takes courage."
+
+  # Bot challenge
+  utter_iamabot:
+    - text: "I'm EmpathicAI, a supportive chatbot designed to provide emotional support and a listening ear. While I'm not human, I'm here to help you feel heard and supported."
+
+  # Thank response
+  utter_youre_welcome:
+    - text: "You're welcome. I'm always here if you need to talk."
+    - text: "Of course! Remember, reaching out is a sign of strength."
+    - text: "I'm glad I could help. Take things one step at a time."
+
+  # Active listening responses
+  utter_listening:
+    - text: "I'm listening. Please, tell me more about what you're experiencing."
+    - text: "I'm here for you. Take your time and share what feels comfortable."
+    - text: "Your feelings matter. I'm here to listen without judgment."
+
+  # Empathy responses by emotion
+  utter_empathy_sadness:
+    - text: "I'm sorry you're feeling sad. It's okay to feel this way, and I'm here to support you through it."
+    - text: "Sadness can feel overwhelming. Please know that you don't have to carry this alone."
+    - text: "I hear that you're going through a difficult time. Would you like to talk about what's making you feel this way?"
+
+  utter_empathy_anxiety:
+    - text: "Anxiety can be really challenging. Let's take a moment together. You're safe here."
+    - text: "I understand that anxious feelings can be overwhelming. Would you like to try a calming technique together?"
+    - text: "It sounds like you're carrying a lot of worry. I'm here to help you work through these feelings."
+
+  utter_empathy_stress:
+    - text: "It sounds like you're under a lot of pressure. Remember, it's okay to take things one step at a time."
+    - text: "Stress can feel suffocating. Let's break things down together. What's weighing on you the most?"
+    - text: "I hear that you're feeling overwhelmed. You're doing the best you can, and that's enough."
+
+  utter_empathy_loneliness:
+    - text: "Feeling lonely is incredibly hard. I want you to know that reaching out like this is a brave step."
+    - text: "Loneliness can feel isolating, but you're not alone right now. I'm here with you."
+    - text: "I hear you. Connection matters, and I'm glad you chose to talk. What's been on your mind?"
+
+  utter_empathy_anger:
+    - text: "It sounds like something has really upset you. It's okay to feel angry—your feelings are valid."
+    - text: "Anger often signals that something important to us has been affected. Would you like to explore what's behind it?"
+    - text: "I hear your frustration. Let's work through this together at your pace."
+
+  utter_empathy_fear:
+    - text: "Fear can feel paralyzing. I'm here with you. Would you like to talk about what's frightening you?"
+    - text: "It's okay to feel afraid. You're not facing this alone—I'm here to support you."
+    - text: "Fear is a natural response to uncertainty. Let's take this moment by moment together."
+
+  utter_empathy_joy:
+    - text: "That's wonderful to hear! I'm so happy you're feeling good. What's bringing you joy?"
+    - text: "It makes me glad to hear you're doing well! Celebrating the good moments is important."
+    - text: "That's great! Positive moments are worth cherishing. Tell me more!"
+
+  # Coping strategies
+  utter_breathing_exercise:
+    - text: "Let's try a simple breathing exercise. Breathe in slowly for 4 counts... hold for 4 counts... and exhale for 6 counts. Repeat this a few times. How does that feel?"
+
+  utter_grounding_technique:
+    - text: "Let's try a grounding exercise. Can you name 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste?"
+
+  utter_journaling_suggestion:
+    - text: "Sometimes writing down our thoughts can help process them. Would you like to try journaling about what you're feeling?"
+
+  # Fallback
+  utter_default:
+    - text: "I'm not sure I understood that completely, but I'm still here for you. Could you tell me more about how you're feeling?"
+    - text: "I want to make sure I understand you correctly. Can you share more about what's on your mind?"
+
+  # Ask to continue
+  utter_ask_continue:
+    - text: "Would you like to talk more about this, or is there something else on your mind?"
+    - text: "Is there anything else you'd like to share or explore together?"
+
+  # Provide resources prompt
+  utter_offer_resources:
+    - text: "Would you like me to share some resources that might help with what you're going through?"
+
+# Session configuration
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

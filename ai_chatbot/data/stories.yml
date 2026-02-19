@@ -1,0 +1,214 @@
+# EmpathicAI - Conversation Stories
+version: "3.1"
+
+stories:
+# ============================================
+# GREETING PATHS
+# ============================================
+- story: greet and express sadness
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: express_sadness
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+
+- story: greet and express anxiety
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: express_anxiety
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+
+- story: greet and express stress
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: express_stress
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+
+- story: greet and express joy
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: express_joy
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+# ============================================
+# DIRECT EMOTIONAL EXPRESSIONS
+# ============================================
+- story: user expresses sadness directly
+  steps:
+    - intent: express_sadness
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+    - intent: affirm
+    - action: utter_listening
+
+- story: user expresses anxiety directly
+  steps:
+    - intent: express_anxiety
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+    - intent: affirm
+    - action: action_provide_coping_strategy
+
+- story: user expresses stress directly
+  steps:
+    - intent: express_stress
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+    - intent: affirm
+    - action: action_provide_coping_strategy
+
+- story: user expresses loneliness directly
+  steps:
+    - intent: express_loneliness
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+
+- story: user expresses anger directly
+  steps:
+    - intent: express_anger
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_listening
+
+- story: user expresses fear directly
+  steps:
+    - intent: express_fear
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+
+# ============================================
+# SUPPORT-SEEKING PATHS
+# ============================================
+- story: user seeks support
+  steps:
+    - intent: seek_support
+    - action: action_validate_feelings
+    - action: utter_listening
+
+- story: user needs to vent
+  steps:
+    - intent: need_to_vent
+    - action: action_active_listening
+    - intent: share_problem
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+- story: user shares problem then wants coping strategies
+  steps:
+    - intent: share_problem
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - intent: ask_coping_strategies
+    - action: action_provide_coping_strategy
+
+# ============================================
+# COPING AND RESOURCES
+# ============================================
+- story: user asks for coping strategies after sadness
+  steps:
+    - intent: express_sadness
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+    - intent: ask_coping_strategies
+    - action: action_provide_coping_strategy
+    - intent: thank
+    - action: utter_youre_welcome
+
+- story: user asks for resources
+  steps:
+    - intent: ask_for_resources
+    - action: action_provide_resources
+    - intent: thank
+    - action: utter_youre_welcome
+
+- story: anxiety then coping strategies
+  steps:
+    - intent: express_anxiety
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - intent: ask_coping_strategies
+    - action: action_provide_coping_strategy
+
+# ============================================
+# EXTENDED CONVERSATIONS
+# ============================================
+- story: multiple emotional expressions
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: express_stress
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - intent: share_problem
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_offer_resources
+    - intent: affirm
+    - action: action_provide_resources
+
+- story: user continues conversation after support
+  steps:
+    - intent: express_sadness
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+    - intent: affirm
+    - action: utter_listening
+    - intent: share_problem
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+- story: user declines to continue
+  steps:
+    - intent: express_sadness
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - action: utter_ask_continue
+    - intent: deny
+    - action: utter_goodbye
+
+- story: positive conversation
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: express_joy
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - intent: goodbye
+    - action: utter_goodbye
+
+# ============================================
+# GRATITUDE PATHS
+# ============================================
+- story: user thanks after support
+  steps:
+    - intent: express_anxiety
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - intent: thank
+    - action: utter_youre_welcome
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: simple thanks and goodbye
+  steps:
+    - intent: thank
+    - action: utter_youre_welcome
+    - intent: goodbye
+    - action: utter_goodbye

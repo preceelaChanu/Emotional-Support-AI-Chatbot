@@ -1,0 +1,406 @@
+# EmpathicAI - NLU Training Data
+version: "3.1"
+
+nlu:
+# ============================================
+# GREETINGS
+# ============================================
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - hi there
+    - greetings
+    - what's up
+    - howdy
+    - hiya
+    - good afternoon
+    - hey bot
+    - hello bot
+
+# ============================================
+# GOODBYES
+# ============================================
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - take care
+    - bye bye
+    - have a good day
+    - see you
+    - good night
+    - I'm leaving
+    - gotta go
+    - talk to you later
+    - farewell
+    - until next time
+    - catch you later
+
+# ============================================
+# AFFIRMATIONS
+# ============================================
+- intent: affirm
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - yes please
+    - of course
+    - definitely
+    - sure
+    - that sounds good
+    - absolutely
+    - correct
+    - indeed
+    - I agree
+    - okay
+    - ok
+    - yes that would help
+    - please do
+
+# ============================================
+# DENIALS
+# ============================================
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - no thanks
+    - not really
+    - I don't think so
+    - no way
+    - never
+    - I'd rather not
+    - not now
+    - maybe later
+    - I'm good
+    - no thank you
+
+# ============================================
+# THANKS
+# ============================================
+- intent: thank
+  examples: |
+    - thanks
+    - thank you
+    - thanks so much
+    - thank you very much
+    - I appreciate it
+    - that's helpful
+    - thanks for listening
+    - I really appreciate this
+    - you've been helpful
+    - thanks a lot
+
+# ============================================
+# BOT CHALLENGE
+# ============================================
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you real?
+    - are you a machine?
+    - are you an AI?
+    - what are you?
+    - who am I talking to?
+
+# ============================================
+# SADNESS EXPRESSIONS
+# ============================================
+- intent: express_sadness
+  examples: |
+    - I feel sad
+    - I'm feeling really down
+    - I've been crying a lot
+    - I feel so hopeless
+    - everything feels pointless
+    - I can't stop feeling sad
+    - I'm depressed
+    - I feel like crying
+    - nothing makes me happy anymore
+    - I feel empty inside
+    - I'm heartbroken
+    - I lost someone close to me
+    - I feel like I'm falling apart
+    - life feels meaningless right now
+    - I've been feeling really low lately
+    - I can't shake this sadness
+    - I feel worthless
+    - I don't see the point anymore
+    - I'm going through a really tough time
+    - my heart hurts so much
+    - I feel broken
+    - I've been struggling with depression
+    - everything feels grey
+    - I just want to cry
+    - I feel so alone in my pain
+
+# ============================================
+# ANXIETY EXPRESSIONS
+# ============================================
+- intent: express_anxiety
+  examples: |
+    - I feel anxious
+    - I'm having a panic attack
+    - I can't stop worrying
+    - my heart is racing
+    - I feel like something bad is going to happen
+    - I'm so nervous
+    - I can't calm down
+    - my thoughts are racing
+    - I feel overwhelmed with worry
+    - I'm constantly on edge
+    - I feel restless and can't relax
+    - I'm anxious about everything
+    - I have this constant feeling of dread
+    - I can't sleep because of anxiety
+    - my mind won't stop
+    - I'm freaking out
+    - I feel like I'm losing control
+    - everything makes me anxious
+    - I'm scared something terrible will happen
+    - I can't breathe properly
+    - I'm trembling and can't stop
+    - panic is taking over
+    - I feel paralyzed by fear
+    - my anxiety is through the roof
+
+# ============================================
+# STRESS EXPRESSIONS
+# ============================================
+- intent: express_stress
+  examples: |
+    - I'm so stressed out
+    - I have too much on my plate
+    - I feel overwhelmed
+    - everything is piling up
+    - I can't handle all this pressure
+    - work is killing me
+    - I'm burning out
+    - there's too much to do
+    - I feel like I'm drowning
+    - the pressure is unbearable
+    - I'm stressed about deadlines
+    - I can't cope with everything
+    - life is overwhelming right now
+    - I'm at my breaking point
+    - I have no time for myself
+    - I'm exhausted from stress
+    - everything is too much
+    - I feel crushed by responsibilities
+    - I'm running on empty
+    - stress is eating me alive
+    - I need a break but can't take one
+    - I'm completely burnt out
+
+# ============================================
+# LONELINESS EXPRESSIONS
+# ============================================
+- intent: express_loneliness
+  examples: |
+    - I feel so lonely
+    - I have no one to talk to
+    - I feel isolated
+    - no one understands me
+    - I feel like I don't belong anywhere
+    - I'm all alone
+    - I have no friends
+    - I feel disconnected from everyone
+    - nobody cares about me
+    - I feel invisible
+    - I'm surrounded by people but still feel alone
+    - I miss having someone to talk to
+    - I feel abandoned
+    - everyone has left me
+    - I'm tired of being alone
+    - loneliness is crushing me
+    - I feel like an outsider
+    - no one reaches out to me
+    - I crave connection but can't find it
+    - I feel forgotten
+
+# ============================================
+# ANGER EXPRESSIONS
+# ============================================
+- intent: express_anger
+  examples: |
+    - I'm so angry
+    - I'm furious right now
+    - I can't believe this happened
+    - I'm fed up with everything
+    - this makes me so mad
+    - I want to scream
+    - I'm frustrated beyond belief
+    - I feel like exploding
+    - everything pisses me off
+    - I'm enraged
+    - I can't control my anger
+    - I'm sick of this
+    - I hate how things are going
+    - I'm irritated by everyone
+    - nothing goes my way and it makes me angry
+    - I feel like breaking something
+    - my blood is boiling
+    - I'm so frustrated with life
+    - people keep letting me down
+
+# ============================================
+# FEAR EXPRESSIONS
+# ============================================
+- intent: express_fear
+  examples: |
+    - I'm scared
+    - I'm afraid of what might happen
+    - I'm terrified
+    - fear is consuming me
+    - I'm frightened about the future
+    - I don't know what to do and it scares me
+    - I'm living in fear
+    - something bad is going to happen
+    - I can't stop being afraid
+    - the uncertainty is terrifying
+    - I'm scared to make decisions
+    - I fear the worst
+    - I'm haunted by fear
+    - everything feels threatening
+    - I'm scared of failing
+    - I'm afraid of being alone forever
+    - the world feels scary right now
+
+# ============================================
+# JOY EXPRESSIONS
+# ============================================
+- intent: express_joy
+  examples: |
+    - I'm feeling great
+    - I'm so happy today
+    - things are going really well
+    - I feel amazing
+    - I'm in a good mood
+    - life is good right now
+    - I'm feeling positive
+    - something wonderful happened
+    - I'm excited about life
+    - I feel grateful
+    - everything is falling into place
+    - I'm feeling hopeful
+    - I had a great day
+    - I'm feeling blessed
+    - I'm on top of the world
+    - I feel content and peaceful
+    - good things are happening
+
+# ============================================
+# NEUTRAL EXPRESSIONS
+# ============================================
+- intent: express_neutral
+  examples: |
+    - I'm okay
+    - nothing special
+    - I'm doing alright
+    - just another day
+    - I'm fine I guess
+    - not good not bad
+    - I'm managing
+    - things are okay
+    - I'm getting by
+    - same as usual
+    - nothing to report
+    - I'm doing okay
+
+# ============================================
+# SEEKING SUPPORT
+# ============================================
+- intent: seek_support
+  examples: |
+    - I need someone to talk to
+    - can you help me feel better
+    - I need support right now
+    - I don't know who else to turn to
+    - I just need someone to listen
+    - help me please
+    - I need comfort
+    - can you be there for me
+    - I need emotional support
+    - I'm looking for help
+    - I need to talk to someone
+    - please help me through this
+    - I need a friend right now
+    - can you support me
+    - I need guidance
+
+# ============================================
+# ASKING FOR COPING STRATEGIES
+# ============================================
+- intent: ask_coping_strategies
+  examples: |
+    - how can I calm down
+    - what can I do to feel better
+    - give me some coping techniques
+    - how do I deal with this
+    - what should I do when I feel like this
+    - any tips for managing anxiety
+    - how can I handle stress better
+    - what helps with sadness
+    - teach me a relaxation technique
+    - how do I cope with difficult emotions
+    - what are some ways to feel better
+    - can you suggest something to help
+    - how do I manage these feelings
+
+# ============================================
+# ASKING FOR RESOURCES
+# ============================================
+- intent: ask_for_resources
+  examples: |
+    - can you recommend any resources
+    - where can I get professional help
+    - are there any hotlines I can call
+    - what resources are available
+    - can you share some helpful links
+    - where should I go for help
+    - do you have any recommendations
+    - what services can help me
+    - I need professional resources
+
+# ============================================
+# SHARING PROBLEMS
+# ============================================
+- intent: share_problem
+  examples: |
+    - let me tell you what happened
+    - I need to share something
+    - something happened that upset me
+    - I want to talk about my situation
+    - here's what's going on
+    - I'm dealing with something difficult
+    - I have a problem I need to discuss
+    - something's been bothering me
+    - I need to get something off my chest
+    - there's something I need to talk about
+
+# ============================================
+# NEED TO VENT
+# ============================================
+- intent: need_to_vent
+  examples: |
+    - I just need to vent
+    - can I just talk for a bit
+    - I need to get this out
+    - I don't need advice just listen
+    - let me just rant for a moment
+    - I need to express my feelings
+    - just let me talk
+    - I need to release some emotions
+    - can I just share without judgment
+    - I need to blow off steam

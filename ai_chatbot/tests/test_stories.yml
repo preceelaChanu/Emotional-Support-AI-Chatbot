@@ -1,0 +1,141 @@
+# EmpathicAI - Test Stories
+version: "3.1"
+
+stories:
+# ============================================
+# TEST: Basic Greeting Flow
+# ============================================
+- story: test_greet_and_goodbye
+  steps:
+    - user: |
+        hello
+      intent: greet
+    - action: utter_greet
+    - user: |
+        bye
+      intent: goodbye
+    - action: utter_goodbye
+
+# ============================================
+# TEST: Sadness Support Flow
+# ============================================
+- story: test_sadness_support
+  steps:
+    - user: |
+        I feel really sad today
+      intent: express_sadness
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - user: |
+        what can I do to feel better?
+      intent: ask_coping_strategies
+    - action: action_provide_coping_strategy
+    - user: |
+        thank you
+      intent: thank
+    - action: utter_youre_welcome
+
+# ============================================
+# TEST: Anxiety Support Flow
+# ============================================
+- story: test_anxiety_support
+  steps:
+    - user: |
+        I'm having a panic attack
+      intent: express_anxiety
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - user: |
+        how can I calm down?
+      intent: ask_coping_strategies
+    - action: action_provide_coping_strategy
+
+# ============================================
+# TEST: Stress Support Flow
+# ============================================
+- story: test_stress_support
+  steps:
+    - user: |
+        hi
+      intent: greet
+    - action: utter_greet
+    - user: |
+        I'm so stressed with work
+      intent: express_stress
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+# ============================================
+# TEST: Loneliness Support Flow
+# ============================================
+- story: test_loneliness_support
+  steps:
+    - user: |
+        I feel so alone
+      intent: express_loneliness
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+
+# ============================================
+# TEST: Resource Request Flow
+# ============================================
+- story: test_resource_request
+  steps:
+    - user: |
+        can you give me some resources for help?
+      intent: ask_for_resources
+    - action: action_provide_resources
+    - user: |
+        thanks
+      intent: thank
+    - action: utter_youre_welcome
+
+# ============================================
+# TEST: Joy Expression Flow
+# ============================================
+- story: test_positive_mood
+  steps:
+    - user: |
+        hey
+      intent: greet
+    - action: utter_greet
+    - user: |
+        I'm feeling great today!
+      intent: express_joy
+    - action: action_analyze_sentiment
+    - action: action_empathetic_response
+    - user: |
+        goodbye
+      intent: goodbye
+    - action: utter_goodbye
+
+# ============================================
+# TEST: Bot Challenge
+# ============================================
+- story: test_bot_challenge
+  steps:
+    - user: |
+        are you a robot?
+      intent: bot_challenge
+    - action: utter_iamabot
+
+# ============================================
+# TEST: Venting Flow
+# ============================================
+- story: test_venting_flow
+  steps:
+    - user: |
+        I just need to vent
+      intent: need_to_vent
+    - action: action_active_listening
+
+# ============================================
+# TEST: Support Seeking Flow
+# ============================================
+- story: test_seeking_support
+  steps:
+    - user: |
+        I need someone to talk to
+      intent: seek_support
+    - action: action_validate_feelings
+    - action: utter_listening
